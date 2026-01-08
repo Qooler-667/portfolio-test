@@ -1,0 +1,24 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+a,
+button {
+  text-decoration: none;
+  outline: none;
+  border: 0;
+  color: transparent;
+  background-color: transparent;
+}
+
+ul,
+ol {
+  list-style: none;
+  color: inherit;
+}
