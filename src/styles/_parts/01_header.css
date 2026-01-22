@@ -1,11 +1,62 @@
+header {
+  display: block;
+  width: 100%;
+  height: 90px;
+  position: fixed;
+  top: 0;
+  margin-inline: auto;
+  overflow: hidden;
+  z-index: 10;
+  transition:
+    width 0.4s ease 0.3s,
+    left 0.4s ease 0.3s,
+    transform 0.4s ease 0.3s,
+    height 0.3s ease 0s;
+}
+
+header.scrolled {
+  left: 0;
+  width: 80px;
+  height: 100vh;
+
+  /* Скролл ВНИЗ: Сначала сжимаем ширину, потом выстреливаем высоту */
+  transition:
+    width 0.4s ease 0s,
+    left 0.4s ease 0s,
+    transform 0.4s ease 0s,
+    height 0.4s ease 0.3s;
+}
+
+/* Синхронизация контента */
+.header__container,
+.header__menu-list {
+  display: flex;
+  transition: all 0.4s ease; /* Универсальная плавная смена gap и padding */
+}
+
+header.scrolled .header__container,
+header.scrolled .header__menu-list,
+header.scrolled .page-settings {
+  flex-direction: column;
+  gap: 50px; /* Уменьшил чуть-чуть, 100 может быть много для экрана */
+  padding: 30px 10px;
+  margin-left: 0;
+  transition-delay: 0.3s;
+}
+
+header.scrolled .header__menu-list li {
+  transform: rotate(45deg);
+  transition: transform 0.4s ease 0.5s; /* Поворот букв в самом конце */
+}
+
 .header__container {
   width: 100%;
   max-width: 1300px;
-  padding: 25px 20px;
-  margin-inline: auto;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 50px;
 }
 
 .header__logo-img {
@@ -41,10 +92,28 @@
   gap: 20px;
 }
 
+@media (max-width: 1024px) {
+  header {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+}
+
 @media (max-width: 768px) {
+  header {
+    height: 60px;
+  }
+
   .header__container {
     justify-content: normal;
     gap: 30px;
+    padding-block: 10px;
+  }
+
+  .header__logo-img {
+    width: 40px;
+    height: 40px;
   }
 
   .header__menu {

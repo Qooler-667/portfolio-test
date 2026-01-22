@@ -17,10 +17,13 @@ button {
   transition: transform 0.2s;
 }
 
+.moon-icon {
+  display: none;
+}
+
 .star-icon {
   fill: transparent;
-  stroke: var(--menu-color);
-  display: none;
+  stroke: rgb(255, 255, 255);
 }
 
 .moon-icon:hover {
@@ -30,15 +33,15 @@ button {
 
 .star-icon:hover {
   stroke: var(--base-white);
+  stroke-width: 2px;
   transform: scale(1.1);
 }
 
-body.white .star-icon {
-  display: block;
-}
-
-body.white .moon-icon {
+.white .star-icon {
   display: none;
+}
+.white .moon-icon {
+  display: block;
 }
 
 /* -------- header__language ------- */
@@ -91,6 +94,13 @@ body.white .moon-icon {
 
 .btn:hover {
   background-color: var(--border-color);
+  border: 1px solid white;
+}
+
+.arrow-btn {
+  position: fixed;
+  bottom: 100px;
+  right: 50px;
 }
 
 .arrow-icon {
@@ -98,12 +108,14 @@ body.white .moon-icon {
   height: 30px;
   stroke: var(--base-text);
   fill: transparent;
-  position: fixed;
-  bottom: 100px;
-  right: 50px;
-  opacity: 0;
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease,
+    stroke 0.2s,
+    fill 0.2s;
   visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease, stroke 0.2s, fill 0.2s;
+  opacity: 0;
+  z-index: 99;
 }
 
 .arrow-icon:hover {
@@ -115,6 +127,7 @@ body.white .moon-icon {
 .arrow-icon.show {
   opacity: 1;
   visibility: visible;
+  z-index: 1;
 }
 
 /* -------------- card-btn --------------- */
@@ -128,7 +141,7 @@ body.white .moon-icon {
     letter-spacing: 0.12rem;
   }
 
-  .arrow-icon {
+  .arrow-btn {
     bottom: 100px;
     right: 30px;
   }

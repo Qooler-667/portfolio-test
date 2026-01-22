@@ -1,3 +1,8 @@
+footer {
+  padding-block: 30px;
+  background: transparent;
+}
+
 .footer__container {
   width: 100%;
   max-width: 1300px;
@@ -6,7 +11,6 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  margin-bottom: 30px;
 }
 
 .footer__top {
@@ -22,7 +26,7 @@
   font-weight: 500;
   line-height: 105%;
   letter-spacing: 0.2rem;
-  color: var(--de-color);
+  color: var(--footer-text);
 }
 
 .footer__link {
@@ -31,13 +35,13 @@
   gap: 15px;
   padding: 10px 20px;
   font-family: var(--third-family);
-  color: var(--de-color);
+  color: var(--base-text);
   border-radius: 15px;
   border: 1px solid var(--border-color);
 }
 
 .footer__link > span {
-  font-family: "Marmelad";
+  font-family: 'Marmelad';
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 150%;
@@ -70,6 +74,12 @@
   width: 100%;
   height: 100%;
   fill: var(--base-text);
+}
+
+@media (max-width: 1440px) {
+  .footer__container {
+    padding-left: clamp(20px, calc((1480px - 100vw) / 2), 110px);
+  }
 }
 
 @media (max-width: 768px) {
